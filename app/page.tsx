@@ -15,7 +15,11 @@ function Home() {
         {/* {showDescription && <Description />} */}
         {showDescription ? <Description /> : null}
       </div>
-      <Link href = "/about">Go to About</Link>
+      <Link href="/about">Go to About</Link>
+      <div>
+        <Link href="/hookss">Go to Hooks</Link>
+      </div>
+
     </main>
   );
 }
