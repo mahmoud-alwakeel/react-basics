@@ -1,12 +1,22 @@
 'use client';
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
+const calculateIncome = () => {
+    let number = 10;
+    for (let i = 0; i < 1000; i++) {
+        number += 1;
+    }
+    console.log("calculating....")
+    return number;
+}
 
 function Home() {
 
     const [counter, setCounter] = useState<number>(0);
     const [success, setSuccess] = useState<boolean>(false);
+    const [shouldCalculate, setshouldCalculate] = useState<boolean>(false);
+    const income = useMemo(() => calculateIncome(), [shouldCalculate],)
 
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -23,6 +33,7 @@ function Home() {
         setCounter(counter + 1);
         if (counter === 10) {
             setSuccess(true);
+            setshouldCalculate(true);
         }
     }
 
